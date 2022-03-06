@@ -48,18 +48,18 @@ def p_term_2(p):
   p[0] = n
   n._nullable = (n._lchild)._nullable and (n._rchild)._nullable
   print(n._nullable)
-  if (n._nullable == True):
+  if ((n._lchild)._nullable == True):
     print('WE WILL MAKE A UNION')
     n._firstpos = ((n._lchild)._firstpos).union((n._rchild)._firstpos)
   else:
     print('WE WILL NOT MAKE A UNION')
     n._firstpos = (n._lchild)._firstpos
-  if (n._nullable == True):
+  if ((n._rchild)._nullable == True):
     print('WE WILL MAKE A UNION')
-    n._firstpos = ((n._lchild)._lastpos).union((n._rchild)._lastpos)
+    n._lastpos = ((n._lchild)._lastpos).union((n._rchild)._lastpos)
   else:
     print('WE WILL NOT MAKE A UNION')
-    n._firstpos = (n._lchild)._firstpos
+    n._lastpos = (n._lchild)._lastpos
   
     
 
