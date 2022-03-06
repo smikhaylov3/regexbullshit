@@ -56,10 +56,10 @@ def p_term_2(p):
     n._firstpos = (n._lchild)._firstpos
   if ((n._rchild)._nullable == True):
     print('WE WILL MAKE A UNION')
-    n._lastpos = ((n._lchild)._lastpos).union((n._rchild)._lastpos)
+    n._lastpos = ((n._rchild)._lastpos).union((n._rchild)._lastpos)
   else:
     print('WE WILL NOT MAKE A UNION')
-    n._lastpos = (n._lchild)._lastpos
+    n._lastpos = (n._rchild)._lastpos
   
     
 
